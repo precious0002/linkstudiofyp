@@ -224,7 +224,7 @@ clearCanvas.addEventListener("click", () => {
 // download canvas as an image
 saveImage.addEventListener("click", () => {
   const link = document.createElement("a");
-  link.download = `${Date.now()}`.png;
+  link.download = `${Date.now()}.png`;
   link.href = canvas.toDataURL();
   link.click();
 });
