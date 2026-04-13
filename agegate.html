@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Age Gate</title>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Mynerve&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/agegate.css">
+        <script src="js/agegate.js" defer></script>
+    </head>
+    <body>
+
+        <header class="topbar">
+            <a href="index.html" class="back-link">
+                <img src="assets/icons/backarrow.png" alt="Back"><span>BACK</span></a>
+        </header>
+
+        <main class="agegate-page">
+            <p class="logo">LINK STUDIO</p>
+            <img src="assets/icons/linkstudiologo.png" alt="Link Studio logo" class="logo-icon">
+
+            <h1 class="hero-title">
+                <span class="handwritten">Create</span>
+                <span class="hero-bold">work togther.</span>
+            </h1>
+
+            <p class="welcome-text">Welcome to Link Studio</p>
+
+            <section class="age-box">
+                <h2 class="box-title">Age Verification</h2>
+                <p class="box-text">Please enter your age to access this content</p>
+
+                <div class="age-row">
+                    <input type="number" id="userAge" class="age-input" placeholder="enter your age"/>
+                    <button id="verify-btn" class="verify-btn" onclick="checkAge()">Verify</button>
+                </div>
+            </section>
+        </main>
+
+</body>
+</html>
+
