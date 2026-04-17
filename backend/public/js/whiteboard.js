@@ -157,6 +157,8 @@ const drawing = (e) => {
     const newX = e.offsetX;
     const newY = e.offsetY;
 
+    ctx.beginPath();
+    ctx.moveTo(prevMouseX, prevMouseY);
     ctx.lineTo(newX, newY);
     ctx.stroke();
 
