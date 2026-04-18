@@ -170,14 +170,7 @@ const drawPencil = (e) => {
   ctx.stroke();
 };
 
-///////
-socket.emit("cursor_move", {
-  roomId: roomId,
-  x: e.offsetX,
-  y: e.offsetY,
-  username: username
-});
-////////////
+
 
 const drawing = (e) => {
   if (!isDrawing) return;
@@ -265,6 +258,16 @@ saveImage.addEventListener("click", () => {
 // mouse contols
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
+////
+canvas.addEventListener("mousemove", (e) => {
+  socket.emit("cursor_move", {
+    roomId: roomId,
+    x: e.offsetX,
+    y: e.offsetY,
+    username: username
+  });
+});
+//////
 canvas.addEventListener("mouseup", (e) => {
   if (!isDrawing) return;
   isDrawing = false;

@@ -66,18 +66,11 @@ socket.on("drawing", (data) => {
 
 // When a user clears the canvas
 socket.on("clear", (roomId) => {
-    socket.to(roomId).emit("clear")
-})
-
-})
-
-// Starts the server on port 3001
-const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => {
-    console.log("Server running on port" + PORT);
+    socket.to(roomId).emit("clear");
 });
 
 ////
+// Cursor movement
 socket.on("cursor_move", (data) => {
     socket.to(data.roomId).emit("cursor_move", {
       id: socket.id,
@@ -86,8 +79,16 @@ socket.on("cursor_move", (data) => {
       y: data.y
     });
   });
-  
+
+  // Remove cursor when user disconnects
   socket.on("disconnect", () => {
     socket.broadcast.emit("user_disconnect", socket.id);
   });
-  ////
+});
+////
+
+// Starts the server on port 3001
+const PORT = process.env.PORT || 3001;
+server.listen(PORT, () => {
+    console.log("Server running on port" + PORT);
+});
