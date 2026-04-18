@@ -76,6 +76,28 @@ const clearCanvas = document.querySelector(".clear-canvas");
 const saveImage = document.querySelector(".save-img");
 const ctx = canvas.getContext("2d");
 
+///////////
+socket.on("cursor_move", (data) => {
+  let cursorElement = document.getElementById(data.id);
+
+  if (!cursorElement) {
+    cursorElement = document.createElement("div");
+    cursorElement.id = data.id;
+    cursorElement.className = "username-cursor";
+    document.body.appendChild(cursorElement);
+  }
+
+  cursorElement.innerText = data.username;
+  cursorElement.style.left = canvas.offsetLeft + data.x + "px";
+  cursorElement.style.top = canvas.offsetTop + data.y + "px";
+});
+
+socket.on("user_disconnect", (id) => {
+  const cursorElement = document.getElementById(id);
+  if (cursorElement) cursorElement.remove();
+});
+////////////
+
 // draws state variables
 let prevMouseX, prevMouseY, snapshot;
 let isDrawing = false;
@@ -147,6 +169,15 @@ const drawPencil = (e) => {
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
 };
+
+///////
+socket.emit("cursor_move", {
+  roomId: roomId,
+  x: e.offsetX,
+  y: e.offsetY,
+  username: username
+});
+////////////
 
 const drawing = (e) => {
   if (!isDrawing) return;

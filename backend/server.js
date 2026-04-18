@@ -77,3 +77,17 @@ server.listen(PORT, () => {
     console.log("Server running on port" + PORT);
 });
 
+////
+socket.on("cursor_move", (data) => {
+    socket.to(data.roomId).emit("cursor_move", {
+      id: socket.id,
+      username: data.username,
+      x: data.x,
+      y: data.y
+    });
+  });
+  
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("user_disconnect", socket.id);
+  });
+  ////
