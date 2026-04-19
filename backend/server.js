@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
         const count = room ? room.size : 0;
 
          // limit to 4 users
-         if (count >= 4) {
+         if (count >= 3) {
             socket.emit("room-full");
             return;
          }
