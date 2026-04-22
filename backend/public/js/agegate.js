@@ -1,4 +1,5 @@
 function checkAge() {
+    // modified code (CodePen, Manzoor, n.d.).
     // Get the value entered by the user from the input field
     var userAge = document.getElementById('userAge').value;
 

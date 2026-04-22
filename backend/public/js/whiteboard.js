@@ -67,7 +67,7 @@ socket.on("drawing", (data) => {
   }
 });
 
-
+// modified code (GeeksforGeeks, 2024)
 const canvas = document.querySelector("canvas");
 const toolBtns = document.querySelectorAll(".tool");
 const sizeSlider = document.querySelector("#size-slider");
@@ -76,7 +76,7 @@ const clearCanvas = document.querySelector(".clear-canvas");
 const saveImage = document.querySelector(".save-img");
 const ctx = canvas.getContext("2d");
 
-///////////
+// modified code (Okiramadani, 2023).
 socket.on("cursor_move", (data) => {
   let cursorElement = document.getElementById(data.id);
 
@@ -96,7 +96,7 @@ socket.on("user_disconnect", (id) => {
   const cursorElement = document.getElementById(id);
   if (cursorElement) cursorElement.remove();
 });
-////////////
+// modified code (Okiramadani, 2023).
 
 // draws state variables
 let prevMouseX, prevMouseY, snapshot;
@@ -258,7 +258,7 @@ saveImage.addEventListener("click", () => {
 // mouse contols
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
-////
+// modified code (Okiramadani, 2023).
 canvas.addEventListener("mousemove", (e) => {
   socket.emit("cursor_move", {
     roomId: roomId,
@@ -267,7 +267,7 @@ canvas.addEventListener("mousemove", (e) => {
     username: username
   });
 });
-//////
+
 canvas.addEventListener("mouseup", (e) => {
   if (!isDrawing) return;
   isDrawing = false;

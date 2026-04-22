@@ -37,7 +37,7 @@ io.on("connection", (socket) => {
         const room = io.sockets.adapter.rooms.get(roomId);
         const count = room ? room.size : 0;
 
-         // limit to 4 users
+         // limit to 3 users
          if (count >= 3) {
             socket.emit("room-full");
             return;
@@ -69,7 +69,7 @@ socket.on("clear", (roomId) => {
     socket.to(roomId).emit("clear");
 });
 
-////
+// modified code (Okiramadani, 2023).
 // Cursor movement
 socket.on("cursor_move", (data) => {
     socket.to(data.roomId).emit("cursor_move", {
@@ -85,7 +85,7 @@ socket.on("cursor_move", (data) => {
     socket.broadcast.emit("user_disconnect", socket.id);
   });
 });
-////
+// modified code (Okiramadani, 2023).
 
 // Starts the server on port 3001
 const PORT = process.env.PORT || 3001;
