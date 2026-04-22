@@ -251,7 +251,7 @@ clearCanvas.addEventListener("click", () => {
 // download canvas as an image
 saveImage.addEventListener("click", () => {
   const link = document.createElement("a");
-  link.download = "linkstudiodrawing";
+  link.download = "linkstudiodrawing"; // modified code
   link.href = canvas.toDataURL();
   link.click();
 });
