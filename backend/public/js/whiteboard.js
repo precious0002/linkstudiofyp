@@ -294,7 +294,7 @@ canvas.addEventListener("mouseup", (e) => {
 
 // stop drawing if thr mouse leaves the canvas
 canvas.addEventListener("mouseleave", () => (isDrawing = false));
-// touch for phones/tablers
+// touch for phones/tablers // future developments
 canvas.addEventListener("touchstart", startDraw);
 canvas.addEventListener("touchmove", drawing);
 canvas.addEventListener("touchend", () => (isDrawing = false));
