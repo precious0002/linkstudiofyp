@@ -182,8 +182,8 @@ const drawing = (e) => {
     const newX = e.offsetX;
     const newY = e.offsetY;
 
-    ctx.beginPath();
-    ctx.moveTo(prevMouseX, prevMouseY);
+    ctx.beginPath(); // AI debugged code
+    ctx.moveTo(prevMouseX, prevMouseY); // AI debugged code
     ctx.lineTo(newX, newY);
     ctx.stroke();
 
