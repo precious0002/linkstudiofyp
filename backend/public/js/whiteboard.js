@@ -177,6 +177,7 @@ const drawing = (e) => {
 
   if (selectedTool === "pencil" || selectedTool === "eraser") {
     ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
+    ctx.lineWidth = brushWidth; // AI debugged code
     
     const newX = e.offsetX;
     const newY = e.offsetY;
